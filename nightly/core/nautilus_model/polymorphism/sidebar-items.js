@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":["GetClientOrderId","GetEmulationTrigger","GetExecAlgorithmId","GetExecSpawnId","GetInstrumentId","GetLimitPrice","GetOrderSide","GetOrderSideSpecified","GetStopPrice","GetStrategyId","GetTsInit","GetVenueOrderId"]};
