@@ -450,6 +450,11 @@
               </a>
              </li>
              <li class="md-nav__item">
+              <a class="md-nav__link" href="../../integrations/bybit.html">
+               Bybit
+              </a>
+             </li>
+             <li class="md-nav__item">
               <a class="md-nav__link" href="../../integrations/databento.html">
                Databento
               </a>
@@ -762,6 +767,15 @@
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   Bar.from_pyo3_list()
+                 </span>
+                </code>
+               </a>
+              </li>
+              <li class="md-nav__item">
+               <a class="md-nav__link" href="#nautilus_trader.model.data.Bar.from_raw">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  Bar.from_raw()
                  </span>
                 </code>
                </a>
@@ -2144,6 +2158,15 @@
                </a>
               </li>
               <li class="md-nav__item">
+               <a class="md-nav__link" href="#nautilus_trader.model.data.QuoteTick.from_raw_arrays_to_list">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  QuoteTick.from_raw_arrays_to_list()
+                 </span>
+                </code>
+               </a>
+              </li>
+              <li class="md-nav__item">
                <a class="md-nav__link" href="#nautilus_trader.model.data.QuoteTick.fully_qualified_name">
                 <code class="docutils literal notranslate">
                  <span class="pre">
@@ -2271,6 +2294,15 @@
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   TradeTick.from_raw()
+                 </span>
+                </code>
+               </a>
+              </li>
+              <li class="md-nav__item">
+               <a class="md-nav__link" href="#nautilus_trader.model.data.TradeTick.from_raw_arrays_to_list">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  TradeTick.from_raw_arrays_to_list()
                  </span>
                 </code>
                </a>
@@ -3194,6 +3226,154 @@
               </p>
              </dd>
             </dl>
+           </dd>
+          </dl>
+          <dl class="py method">
+           <dt class="sig sig-object py" id="nautilus_trader.model.data.Bar.from_raw">
+            <em class="property">
+             <span class="pre">
+              static
+             </span>
+             <span class="w">
+             </span>
+            </em>
+            <span class="sig-name descname">
+             <span class="pre">
+              from_raw
+             </span>
+            </span>
+            <span class="sig-paren">
+             (
+            </span>
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               BarType
+              </span>
+              <span class="pre">
+               bar_type
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               int64_t
+              </span>
+              <span class="pre">
+               open
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               int64_t
+              </span>
+              <span class="pre">
+               high
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               int64_t
+              </span>
+              <span class="pre">
+               low
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               int64_t
+              </span>
+              <span class="pre">
+               close
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint8_t
+              </span>
+              <span class="pre">
+               price_prec
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint64_t
+              </span>
+              <span class="pre">
+               volume
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint8_t
+              </span>
+              <span class="pre">
+               size_prec
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint64_t
+              </span>
+              <span class="pre">
+               ts_event
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint64_t
+              </span>
+              <span class="pre">
+               ts_init
+              </span>
+             </span>
+            </em>
+            <span class="sig-paren">
+             )
+            </span>
+            <span class="sig-return">
+             <span class="sig-return-icon">
+              →
+             </span>
+             <span class="sig-return-typehint">
+              <a class="reference internal" href="#nautilus_trader.model.data.Bar" title="nautilus_trader.model.data.Bar">
+               <span class="pre">
+                Bar
+               </span>
+              </a>
+             </span>
+            </span>
+            <a class="headerlink" href="#nautilus_trader.model.data.Bar.from_raw" title="Permalink to this definition">
+             ¶
+            </a>
+           </dt>
+           <dd>
            </dd>
           </dl>
           <dl class="py method">
@@ -8699,6 +8879,28 @@ the key and value contents of metadata must themselves be hashable.
           <em class="sig-param">
            <span class="n">
             <span class="pre">
+             uint8_t
+            </span>
+            <span class="pre">
+             flags
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="n">
+            <span class="pre">
+             uint64_t
+            </span>
+            <span class="pre">
+             sequence
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="n">
+            <span class="pre">
              uint64_t
             </span>
             <span class="pre">
@@ -8714,28 +8916,6 @@ the key and value contents of metadata must themselves be hashable.
             </span>
             <span class="pre">
              ts_init
-            </span>
-           </span>
-          </em>
-          ,
-          <em class="sig-param">
-           <span class="n">
-            <span class="pre">
-             uint8_t
-            </span>
-            <span class="pre">
-             flags=0
-            </span>
-           </span>
-          </em>
-          ,
-          <em class="sig-param">
-           <span class="n">
-            <span class="pre">
-             uint64_t
-            </span>
-            <span class="pre">
-             sequence=0
             </span>
            </span>
           </em>
@@ -8834,6 +9014,32 @@ the key and value contents of metadata must themselves be hashable.
              <li>
               <p>
                <strong>
+                flags
+               </strong>
+               (
+               <em>
+                uint8_t
+               </em>
+               ) – The record flags bit field, indicating packet end and data information.
+A value of zero indicates no flags.
+              </p>
+             </li>
+             <li>
+              <p>
+               <strong>
+                sequence
+               </strong>
+               (
+               <em>
+                uint64_t
+               </em>
+               ) – The unique sequence number for the update.
+If no sequence number provided in the source data then use a value of zero.
+              </p>
+             </li>
+             <li>
+              <p>
+               <strong>
                 ts_event
                </strong>
                (
@@ -8853,51 +9059,6 @@ the key and value contents of metadata must themselves be hashable.
                 uint64_t
                </em>
                ) – The UNIX timestamp (nanoseconds) when the data object was initialized.
-              </p>
-             </li>
-             <li>
-              <p>
-               <strong>
-                flags
-               </strong>
-               (
-               <em>
-                uint8_t
-               </em>
-               <em>
-                ,
-               </em>
-               <em>
-                default 0
-               </em>
-               <em>
-                (
-               </em>
-               <em>
-                no flags
-               </em>
-               <em>
-                )
-               </em>
-               ) – A combination of packet end with matching engine status.
-              </p>
-             </li>
-             <li>
-              <p>
-               <strong>
-                sequence
-               </strong>
-               (
-               <em>
-                uint64_t
-               </em>
-               <em>
-                ,
-               </em>
-               <em>
-                default 0
-               </em>
-               ) – The unique sequence number for the update.
               </p>
              </li>
             </ul>
@@ -9044,6 +9205,17 @@ the key and value contents of metadata must themselves be hashable.
                uint64_t
               </span>
               <span class="pre">
+               sequence
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint64_t
+              </span>
+              <span class="pre">
                ts_event
               </span>
              </span>
@@ -9056,17 +9228,6 @@ the key and value contents of metadata must themselves be hashable.
               </span>
               <span class="pre">
                ts_init
-              </span>
-             </span>
-            </em>
-            ,
-            <em class="sig-param">
-             <span class="n">
-              <span class="pre">
-               uint64_t
-              </span>
-              <span class="pre">
-               sequence=0
               </span>
              </span>
             </em>
@@ -9754,7 +9915,8 @@ the key and value contents of metadata must themselves be hashable.
                  <em>
                   uint8_t
                  </em>
-                 ) – A combination of packet end with matching engine status.
+                 ) – The record flags bit field, indicating packet end and data information.
+A value of zero indicates no flags.
                 </p>
                </li>
                <li>
@@ -9767,6 +9929,7 @@ the key and value contents of metadata must themselves be hashable.
                   uint64_t
                  </em>
                  ) – The unique sequence number for the update.
+If no sequence number provided in the source data then use a value of zero.
                 </p>
                </li>
                <li>
@@ -11539,7 +11702,8 @@ the key and value contents of metadata must themselves be hashable.
                <em>
                 uint8_t
                </em>
-               ) – A combination of packet end with matching engine status.
+               ) – The record flags bit field, indicating packet end and data information.
+A value of zero indicates no flags.
               </p>
              </li>
              <li>
@@ -11552,6 +11716,7 @@ the key and value contents of metadata must themselves be hashable.
                 uint64_t
                </em>
                ) – The unique sequence number for the update.
+If no sequence number provided in the source data then use a value of zero.
               </p>
              </li>
              <li>
@@ -12691,7 +12856,7 @@ the key and value contents of metadata must themselves be hashable.
            </code>
           </p>
           <p>
-           Represents a single quote tick in a financial market.
+           Represents a single quote tick in a market.
           </p>
           <p>
            Contains information about the best top of book bid and ask.
@@ -13890,6 +14055,165 @@ the key and value contents of metadata must themselves be hashable.
            </dd>
           </dl>
           <dl class="py method">
+           <dt class="sig sig-object py" id="nautilus_trader.model.data.QuoteTick.from_raw_arrays_to_list">
+            <em class="property">
+             <span class="pre">
+              static
+             </span>
+             <span class="w">
+             </span>
+            </em>
+            <span class="sig-name descname">
+             <span class="pre">
+              from_raw_arrays_to_list
+             </span>
+            </span>
+            <span class="sig-paren">
+             (
+            </span>
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               InstrumentId
+              </span>
+              <span class="pre">
+               instrument_id:
+              </span>
+              <span class="pre">
+               InstrumentId
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               int
+              </span>
+              <span class="pre">
+               price_prec:
+              </span>
+              <span class="pre">
+               int
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               int
+              </span>
+              <span class="pre">
+               size_prec:
+              </span>
+              <span class="pre">
+               int
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               bid_prices_raw:
+              </span>
+              <span class="pre">
+               np.ndarray
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               ask_prices_raw:
+              </span>
+              <span class="pre">
+               np.ndarray
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               bid_sizes_raw:
+              </span>
+              <span class="pre">
+               np.ndarray
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               ask_sizes_raw:
+              </span>
+              <span class="pre">
+               np.ndarray
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               ts_events:
+              </span>
+              <span class="pre">
+               np.ndarray
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               ts_inits:
+              </span>
+              <span class="pre">
+               np.ndarray
+              </span>
+             </span>
+            </em>
+            <span class="sig-paren">
+             )
+            </span>
+            <span class="sig-return">
+             <span class="sig-return-icon">
+              →
+             </span>
+             <span class="sig-return-typehint">
+              <span class="pre">
+               list
+              </span>
+              <span class="p">
+               <span class="pre">
+                [
+               </span>
+              </span>
+              <a class="reference internal" href="#nautilus_trader.model.data.QuoteTick" title="nautilus_trader.model.data.QuoteTick">
+               <span class="pre">
+                QuoteTick
+               </span>
+              </a>
+              <span class="p">
+               <span class="pre">
+                ]
+               </span>
+              </span>
+             </span>
+            </span>
+            <a class="headerlink" href="#nautilus_trader.model.data.QuoteTick.from_raw_arrays_to_list" title="Permalink to this definition">
+             ¶
+            </a>
+           </dt>
+           <dd>
+           </dd>
+          </dl>
+          <dl class="py method">
            <dt class="sig sig-object py" id="nautilus_trader.model.data.QuoteTick.fully_qualified_name">
             <em class="property">
              <span class="pre">
@@ -14434,7 +14758,7 @@ the key and value contents of metadata must themselves be hashable.
            </code>
           </p>
           <p>
-           Represents a single trade tick in a financial market.
+           Represents a single trade tick in a market.
           </p>
           <p>
            Contains information about a single unique trade which matched buyer and
@@ -15206,6 +15530,156 @@ seller counterparties.
               </p>
              </dd>
             </dl>
+           </dd>
+          </dl>
+          <dl class="py method">
+           <dt class="sig sig-object py" id="nautilus_trader.model.data.TradeTick.from_raw_arrays_to_list">
+            <em class="property">
+             <span class="pre">
+              static
+             </span>
+             <span class="w">
+             </span>
+            </em>
+            <span class="sig-name descname">
+             <span class="pre">
+              from_raw_arrays_to_list
+             </span>
+            </span>
+            <span class="sig-paren">
+             (
+            </span>
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               InstrumentId
+              </span>
+              <span class="pre">
+               instrument_id
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint8_t
+              </span>
+              <span class="pre">
+               price_prec
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint8_t
+              </span>
+              <span class="pre">
+               size_prec
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               int64_t[:]
+              </span>
+              <span class="pre">
+               prices_raw
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint64_t[:]
+              </span>
+              <span class="pre">
+               sizes_raw
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint8_t[:]
+              </span>
+              <span class="pre">
+               aggressor_sides
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               list
+              </span>
+              <span class="pre">
+               trade_ids
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint64_t[:]
+              </span>
+              <span class="pre">
+               ts_events
+              </span>
+             </span>
+            </em>
+            ,
+            <em class="sig-param">
+             <span class="n">
+              <span class="pre">
+               uint64_t[:]
+              </span>
+              <span class="pre">
+               ts_inits
+              </span>
+             </span>
+            </em>
+            <span class="sig-paren">
+             )
+            </span>
+            <span class="sig-return">
+             <span class="sig-return-icon">
+              →
+             </span>
+             <span class="sig-return-typehint">
+              <span class="pre">
+               list
+              </span>
+              <span class="p">
+               <span class="pre">
+                [
+               </span>
+              </span>
+              <a class="reference internal" href="#nautilus_trader.model.data.TradeTick" title="nautilus_trader.model.data.TradeTick">
+               <span class="pre">
+                TradeTick
+               </span>
+              </a>
+              <span class="p">
+               <span class="pre">
+                ]
+               </span>
+              </span>
+             </span>
+            </span>
+            <a class="headerlink" href="#nautilus_trader.model.data.TradeTick.from_raw_arrays_to_list" title="Permalink to this definition">
+             ¶
+            </a>
+           </dt>
+           <dd>
            </dd>
           </dl>
           <dl class="py method">

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["matching_core"]};
+window.SIDEBAR_ITEMS = {"mod":["client","engine","matching_core","messages"]};

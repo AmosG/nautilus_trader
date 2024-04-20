@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `model/src/venues.rs`."><title>venues.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="nautilus_model" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (0ad927c0c 2024-03-21)" data-channel="nightly" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../nautilus_model/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `model/src/venues.rs`."><title>venues.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="nautilus_model" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (e3181b091 2024-04-18)" data-channel="nightly" data-search-js="search-5b46ae87cc198d72.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../nautilus_model/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -80,23 +78,6 @@
 <a href="#78" id="78">78</a>
 <a href="#79" id="79">79</a>
 <a href="#80" id="80">80</a>
-<a href="#81" id="81">81</a>
-<a href="#82" id="82">82</a>
-<a href="#83" id="83">83</a>
-<a href="#84" id="84">84</a>
-<a href="#85" id="85">85</a>
-<a href="#86" id="86">86</a>
-<a href="#87" id="87">87</a>
-<a href="#88" id="88">88</a>
-<a href="#89" id="89">89</a>
-<a href="#90" id="90">90</a>
-<a href="#91" id="91">91</a>
-<a href="#92" id="92">92</a>
-<a href="#93" id="93">93</a>
-<a href="#94" id="94">94</a>
-<a href="#95" id="95">95</a>
-<a href="#96" id="96">96</a>
-<a href="#97" id="97">97</a>
 </pre></div><pre class="rust"><code><span class="comment">// -------------------------------------------------------------------------------------------------
 //  Copyright (C) 2015-2024 Nautech Systems Pty Ltd. All rights reserved.
 //  https://nautechsystems.io
@@ -118,7 +99,6 @@
 };
 
 <span class="kw">use </span>once_cell::sync::Lazy;
-<span class="kw">use </span>ustr::Ustr;
 
 <span class="kw">use </span><span class="kw">crate</span>::identifiers::venue::Venue;
 
@@ -134,64 +114,48 @@
 <span class="kw">impl </span>Venue {
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>CBCM() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>CBCM_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"CBCM"</span>),
-        })
+        <span class="kw-2">*</span>CBCM_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"CBCM"</span>))
     }
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>GLBX() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>GLBX_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"GLBX"</span>),
-        })
+        <span class="kw-2">*</span>GLBX_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"GLBX"</span>))
     }
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>NYUM() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>NYUM_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"NYUM"</span>),
-        })
+        <span class="kw-2">*</span>NYUM_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"NYUM"</span>))
     }
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>XCBT() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>XCBT_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"XCBT"</span>),
-        })
+        <span class="kw-2">*</span>XCBT_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"XCBT"</span>))
     }
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>XCEC() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>XCEC_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"XCEC"</span>),
-        })
+        <span class="kw-2">*</span>XCEC_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"XCEC"</span>))
     }
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>XCME() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>XCME_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"XCME"</span>),
-        })
+        <span class="kw-2">*</span>XCME_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"XCME"</span>))
     }
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>XFXS() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>XFXS_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"XFXS"</span>),
-        })
+        <span class="kw-2">*</span>XFXS_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"XFXS"</span>))
     }
     <span class="attr">#[allow(non_snake_case)]
     </span><span class="kw">pub fn </span>XNYM() -&gt; <span class="self">Self </span>{
-        <span class="kw-2">*</span>XNYM_LOCK.get_or_init(|| <span class="self">Self </span>{
-            value: Ustr::from(<span class="string">"XNYM"</span>),
-        })
+        <span class="kw-2">*</span>XNYM_LOCK.get_or_init(|| <span class="self">Self</span>::from(<span class="string">"XNYM"</span>))
     }
 }
 
 <span class="kw">pub static </span>VENUE_MAP: Lazy&lt;Mutex&lt;HashMap&lt;<span class="kw-2">&amp;</span>str, Venue&gt;&gt;&gt; = Lazy::new(|| {
     <span class="kw">let </span><span class="kw-2">mut </span>map = HashMap::new();
-    map.insert(Venue::CBCM().value.as_str(), Venue::CBCM());
-    map.insert(Venue::GLBX().value.as_str(), Venue::GLBX());
-    map.insert(Venue::NYUM().value.as_str(), Venue::NYUM());
-    map.insert(Venue::XCBT().value.as_str(), Venue::XCBT());
-    map.insert(Venue::XCEC().value.as_str(), Venue::XCEC());
-    map.insert(Venue::XCME().value.as_str(), Venue::XCME());
-    map.insert(Venue::XFXS().value.as_str(), Venue::XFXS());
-    map.insert(Venue::XNYM().value.as_str(), Venue::XNYM());
+    map.insert(Venue::CBCM().inner().as_str(), Venue::CBCM());
+    map.insert(Venue::GLBX().inner().as_str(), Venue::GLBX());
+    map.insert(Venue::NYUM().inner().as_str(), Venue::NYUM());
+    map.insert(Venue::XCBT().inner().as_str(), Venue::XCBT());
+    map.insert(Venue::XCEC().inner().as_str(), Venue::XCEC());
+    map.insert(Venue::XCME().inner().as_str(), Venue::XCME());
+    map.insert(Venue::XFXS().inner().as_str(), Venue::XFXS());
+    map.insert(Venue::XNYM().inner().as_str(), Venue::XNYM());
     Mutex::new(map)
 });
 </code></pre></div></section></main></body></html>

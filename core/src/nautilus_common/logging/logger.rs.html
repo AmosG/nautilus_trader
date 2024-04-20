@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `common/src/logging/logger.rs`."><title>logger.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="nautilus_common" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (0ad927c0c 2024-03-21)" data-channel="nightly" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../nautilus_common/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `common/src/logging/logger.rs`."><title>logger.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="nautilus_common" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (e3181b091 2024-04-18)" data-channel="nightly" data-search-js="search-5b46ae87cc198d72.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../nautilus_common/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -734,6 +732,14 @@
 <a href="#732" id="732">732</a>
 <a href="#733" id="733">733</a>
 <a href="#734" id="734">734</a>
+<a href="#735" id="735">735</a>
+<a href="#736" id="736">736</a>
+<a href="#737" id="737">737</a>
+<a href="#738" id="738">738</a>
+<a href="#739" id="739">739</a>
+<a href="#740" id="740">740</a>
+<a href="#741" id="741">741</a>
+<a href="#742" id="742">742</a>
 </pre></div><pre class="rust"><code><span class="comment">// -------------------------------------------------------------------------------------------------
 //  Copyright (C) 2015-2024 Nautech Systems Pty Ltd. All rights reserved.
 //  https://nautechsystems.io
@@ -757,18 +763,18 @@
         atomic::Ordering,
         mpsc::{channel, Receiver, SendError, Sender},
     },
-    thread,
+    thread::{<span class="self">self</span>, JoinHandle},
 };
 
 <span class="kw">use </span>indexmap::IndexMap;
 <span class="kw">use </span>log::{
-    debug, error, info,
     kv::{ToValue, Value},
-    set_boxed_logger, set_max_level, warn, Level, LevelFilter, Log, STATIC_MAX_LEVEL,
+    set_boxed_logger, set_max_level, Level, LevelFilter, Log, STATIC_MAX_LEVEL,
 };
 <span class="kw">use </span>nautilus_core::{
     datetime::unix_nanos_to_iso8601,
-    time::{get_atomic_clock_realtime, get_atomic_clock_static, UnixNanos},
+    nanos::UnixNanos,
+    time::{get_atomic_clock_realtime, get_atomic_clock_static},
     uuid::UUID4,
 };
 <span class="kw">use </span>nautilus_model::identifiers::trader_id::TraderId;
@@ -945,7 +951,7 @@
                 <span class="self">self</span>.line.level,
                 <span class="self">self</span>.trader_id,
                 <span class="kw-2">&amp;</span><span class="self">self</span>.line.component,
-                <span class="kw-2">&amp;</span><span class="self">self</span>.line.message
+                <span class="kw-2">&amp;</span><span class="self">self</span>.line.message,
             )
         })
     }
@@ -959,7 +965,7 @@
                 <span class="self">self</span>.line.level,
                 <span class="self">self</span>.trader_id,
                 <span class="kw-2">&amp;</span><span class="self">self</span>.line.component,
-                <span class="kw-2">&amp;</span><span class="self">self</span>.line.message
+                <span class="kw-2">&amp;</span><span class="self">self</span>.line.message,
             )
         })
     }
@@ -1057,20 +1063,23 @@
             <span class="macro">println!</span>(<span class="string">"Logger initialized with {:?} {:?}"</span>, config, file_config);
         }
 
+        <span class="kw">let </span><span class="kw-2">mut </span>handle: <span class="prelude-ty">Option</span>&lt;JoinHandle&lt;()&gt;&gt; = <span class="prelude-val">None</span>;
         <span class="kw">match </span>set_boxed_logger(Box::new(logger)) {
             <span class="prelude-val">Ok</span>(<span class="kw">_</span>) =&gt; {
-                <span class="kw">let </span>_join_handle = thread::Builder::new()
-                    .name(<span class="string">"logging"</span>.to_string())
-                    .spawn(<span class="kw">move </span>|| {
-                        <span class="self">Self</span>::handle_messages(
-                            trader_id.to_string(),
-                            instance_id.to_string(),
-                            config,
-                            file_config,
-                            rx,
-                        );
-                    })
-                    .expect(<span class="string">"Error spawning `logging` thread"</span>);
+                handle = <span class="prelude-val">Some</span>(
+                    thread::Builder::new()
+                        .name(<span class="string">"logging"</span>.to_string())
+                        .spawn(<span class="kw">move </span>|| {
+                            <span class="self">Self</span>::handle_messages(
+                                trader_id.to_string(),
+                                instance_id.to_string(),
+                                config,
+                                file_config,
+                                rx,
+                            );
+                        })
+                        .expect(<span class="string">"Error spawning `logging` thread"</span>),
+                );
 
                 <span class="kw">let </span>max_level = log::LevelFilter::Debug;
                 set_max_level(max_level);
@@ -1083,7 +1092,7 @@
             }
         }
 
-        LogGuard::new()
+        LogGuard::new(handle)
     }
 
     <span class="kw">fn </span>handle_messages(
@@ -1183,16 +1192,16 @@
     <span class="kw">match </span>level {
         LogLevel::Off =&gt; {}
         LogLevel::Debug =&gt; {
-            <span class="macro">debug!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
+            <span class="macro">log::debug!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
         }
         LogLevel::Info =&gt; {
-            <span class="macro">info!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
+            <span class="macro">log::info!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
         }
         LogLevel::Warning =&gt; {
-            <span class="macro">warn!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
+            <span class="macro">log::warn!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
         }
         LogLevel::Error =&gt; {
-            <span class="macro">error!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
+            <span class="macro">log::error!</span>(component = component.to_value(), color = color; <span class="string">"{}"</span>, message);
         }
     }
 }
@@ -1202,23 +1211,28 @@
     pyo3::pyclass(module = <span class="string">"nautilus_trader.core.nautilus_pyo3.common"</span>)
 )]
 #[derive(Debug)]
-</span><span class="kw">pub struct </span>LogGuard {}
+</span><span class="kw">pub struct </span>LogGuard {
+    handle: <span class="prelude-ty">Option</span>&lt;JoinHandle&lt;()&gt;&gt;,
+}
 
 <span class="kw">impl </span>LogGuard {
-    <span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
-        LogGuard {}
+    <span class="kw">pub fn </span>new(handle: <span class="prelude-ty">Option</span>&lt;JoinHandle&lt;()&gt;&gt;) -&gt; <span class="self">Self </span>{
+        LogGuard { handle }
     }
 }
 
 <span class="kw">impl </span>Default <span class="kw">for </span>LogGuard {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <span class="self">Self</span>::new(<span class="prelude-val">None</span>)
     }
 }
 
 <span class="kw">impl </span>Drop <span class="kw">for </span>LogGuard {
     <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         log::logger().flush();
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(handle) = <span class="self">self</span>.handle.take() {
+            handle.join().expect(<span class="string">"Error joining logging handle"</span>)
+        }
     }
 }
 

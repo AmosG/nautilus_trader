@@ -445,6 +445,11 @@
               </a>
              </li>
              <li class="md-nav__item">
+              <a class="md-nav__link" href="../integrations/bybit.html">
+               Bybit
+              </a>
+             </li>
+             <li class="md-nav__item">
               <a class="md-nav__link" href="../integrations/databento.html">
                Databento
               </a>
@@ -2368,6 +2373,15 @@
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     MessageBus.deregister()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#nautilus_trader.common.component.MessageBus.dispose">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    MessageBus.dispose()
                    </span>
                   </code>
                  </a>
@@ -20782,6 +20796,29 @@ of any buffered records when the instance is destroyed.
            <em class="sig-param">
             <span class="n">
              <span class="pre">
+              database:
+             </span>
+             <span class="pre">
+              nautilus_pyo3.RedisMessageBusDatabase
+             </span>
+             <span class="pre">
+              |
+             </span>
+             <span class="pre">
+              None
+             </span>
+             <span class="pre">
+              =
+             </span>
+             <span class="pre">
+              None
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
               bool
              </span>
              <span class="pre">
@@ -21029,6 +21066,24 @@ For example,
                  optional
                 </em>
                 ) – The serializer for database operations.
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 database
+                </strong>
+                (
+                <em>
+                 nautilus_pyo3.RedisMessageBusDatabase
+                </em>
+                <em>
+                 ,
+                </em>
+                <em>
+                 optional
+                </em>
+                ) – The backing database for the message bus.
                </p>
               </li>
               <li>
@@ -21299,6 +21354,46 @@ as the event loop.
                </ul>
               </dd>
              </dl>
+            </dd>
+           </dl>
+           <dl class="py method">
+            <dt class="sig sig-object py" id="nautilus_trader.common.component.MessageBus.dispose">
+             <span class="sig-name descname">
+              <span class="pre">
+               dispose
+              </span>
+             </span>
+             <span class="sig-paren">
+              (
+             </span>
+             <em class="sig-param">
+              <span class="n">
+               <span class="pre">
+                self
+               </span>
+              </span>
+             </em>
+             <span class="sig-paren">
+              )
+             </span>
+             <span class="sig-return">
+              <span class="sig-return-icon">
+               →
+              </span>
+              <span class="sig-return-typehint">
+               <span class="pre">
+                void
+               </span>
+              </span>
+             </span>
+             <a class="headerlink" href="#nautilus_trader.common.component.MessageBus.dispose" title="Permalink to this definition">
+              ¶
+             </a>
+            </dt>
+            <dd>
+             <p>
+              Dispose of the message bus which will close the internal channel and thread.
+             </p>
             </dd>
            </dl>
            <dl class="py method">
@@ -21746,7 +21841,7 @@ If
               <dd class="field-odd">
                <p>
                 <cite>
-                 int
+                 uint64_t
                 </cite>
                </p>
               </dd>
@@ -22052,7 +22147,7 @@ If
               <dd class="field-odd">
                <p>
                 <cite>
-                 int
+                 uint64_t
                 </cite>
                </p>
               </dd>
@@ -22191,7 +22286,7 @@ If
               <dd class="field-odd">
                <p>
                 <cite>
-                 int
+                 uint64_t
                 </cite>
                </p>
               </dd>
@@ -22405,7 +22500,7 @@ If
               <dd class="field-odd">
                <p>
                 <cite>
-                 int
+                 uint64_t
                 </cite>
                </p>
               </dd>

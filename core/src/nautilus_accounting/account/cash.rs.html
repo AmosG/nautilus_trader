@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `accounting/src/account/cash.rs`."><title>cash.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="nautilus_accounting" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (0ad927c0c 2024-03-21)" data-channel="nightly" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../nautilus_accounting/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `accounting/src/account/cash.rs`."><title>cash.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="nautilus_accounting" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (e3181b091 2024-04-18)" data-channel="nightly" data-search-js="search-5b46ae87cc198d72.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../nautilus_accounting/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -575,6 +573,48 @@
 <a href="#573" id="573">573</a>
 <a href="#574" id="574">574</a>
 <a href="#575" id="575">575</a>
+<a href="#576" id="576">576</a>
+<a href="#577" id="577">577</a>
+<a href="#578" id="578">578</a>
+<a href="#579" id="579">579</a>
+<a href="#580" id="580">580</a>
+<a href="#581" id="581">581</a>
+<a href="#582" id="582">582</a>
+<a href="#583" id="583">583</a>
+<a href="#584" id="584">584</a>
+<a href="#585" id="585">585</a>
+<a href="#586" id="586">586</a>
+<a href="#587" id="587">587</a>
+<a href="#588" id="588">588</a>
+<a href="#589" id="589">589</a>
+<a href="#590" id="590">590</a>
+<a href="#591" id="591">591</a>
+<a href="#592" id="592">592</a>
+<a href="#593" id="593">593</a>
+<a href="#594" id="594">594</a>
+<a href="#595" id="595">595</a>
+<a href="#596" id="596">596</a>
+<a href="#597" id="597">597</a>
+<a href="#598" id="598">598</a>
+<a href="#599" id="599">599</a>
+<a href="#600" id="600">600</a>
+<a href="#601" id="601">601</a>
+<a href="#602" id="602">602</a>
+<a href="#603" id="603">603</a>
+<a href="#604" id="604">604</a>
+<a href="#605" id="605">605</a>
+<a href="#606" id="606">606</a>
+<a href="#607" id="607">607</a>
+<a href="#608" id="608">608</a>
+<a href="#609" id="609">609</a>
+<a href="#610" id="610">610</a>
+<a href="#611" id="611">611</a>
+<a href="#612" id="612">612</a>
+<a href="#613" id="613">613</a>
+<a href="#614" id="614">614</a>
+<a href="#615" id="615">615</a>
+<a href="#616" id="616">616</a>
+<a href="#617" id="617">617</a>
 </pre></div><pre class="rust"><code><span class="comment">// -------------------------------------------------------------------------------------------------
 //  Copyright (C) 2015-2024 Nautech Systems Pty Ltd. All rights reserved.
 //  https://nautechsystems.io
@@ -596,17 +636,19 @@
     ops::{Deref, DerefMut},
 };
 
+<span class="kw">use </span>nautilus_common::interface::account::Account;
 <span class="kw">use </span>nautilus_model::{
     enums::{AccountType, LiquiditySide, OrderSide},
     events::{account::state::AccountState, order::filled::OrderFilled},
-    instruments::Instrument,
+    identifiers::account_id::AccountId,
+    instruments::InstrumentAny,
     position::Position,
     types::{
         balance::AccountBalance, currency::Currency, money::Money, price::Price, quantity::Quantity,
     },
 };
 
-<span class="kw">use </span><span class="kw">crate</span>::account::{base::BaseAccount, Account};
+<span class="kw">use </span><span class="kw">crate</span>::account::base::BaseAccount;
 
 <span class="attr">#[derive(Debug)]
 #[cfg_attr(
@@ -640,9 +682,34 @@
 }
 
 <span class="kw">impl </span>Account <span class="kw">for </span>CashAccount {
+    <span class="kw">fn </span>id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; AccountId {
+        <span class="self">self</span>.id
+    }
+
+    <span class="kw">fn </span>account_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; AccountType {
+        <span class="self">self</span>.account_type
+    }
+
+    <span class="kw">fn </span>base_currency(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Currency&gt; {
+        <span class="self">self</span>.base_currency
+    }
+
+    <span class="kw">fn </span>is_cash_account(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.account_type == AccountType::Cash
+    }
+
+    <span class="kw">fn </span>is_margin_account(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.account_type == AccountType::Margin
+    }
+
+    <span class="kw">fn </span>calculated_account_state(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="bool-val">false </span><span class="comment">// TODO (implement this logic)
+    </span>}
+
     <span class="kw">fn </span>balance_total(<span class="kw-2">&amp;</span><span class="self">self</span>, currency: <span class="prelude-ty">Option</span>&lt;Currency&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;Money&gt; {
         <span class="self">self</span>.base_balance_total(currency)
     }
+
     <span class="kw">fn </span>balances_total(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; HashMap&lt;Currency, Money&gt; {
         <span class="self">self</span>.base_balances_total()
     }
@@ -654,37 +721,46 @@
     <span class="kw">fn </span>balances_free(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; HashMap&lt;Currency, Money&gt; {
         <span class="self">self</span>.base_balances_free()
     }
+
     <span class="kw">fn </span>balance_locked(<span class="kw-2">&amp;</span><span class="self">self</span>, currency: <span class="prelude-ty">Option</span>&lt;Currency&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;Money&gt; {
         <span class="self">self</span>.base_balance_locked(currency)
     }
+
     <span class="kw">fn </span>balances_locked(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; HashMap&lt;Currency, Money&gt; {
         <span class="self">self</span>.base_balances_locked()
     }
+
     <span class="kw">fn </span>last_event(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;AccountState&gt; {
         <span class="self">self</span>.base_last_event()
     }
+
     <span class="kw">fn </span>events(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;AccountState&gt; {
         <span class="self">self</span>.events.clone()
     }
+
     <span class="kw">fn </span>event_count(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; usize {
         <span class="self">self</span>.events.len()
     }
+
     <span class="kw">fn </span>currencies(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;Currency&gt; {
         <span class="self">self</span>.balances.keys().copied().collect()
     }
+
     <span class="kw">fn </span>starting_balances(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; HashMap&lt;Currency, Money&gt; {
         <span class="self">self</span>.balances_starting.clone()
     }
+
     <span class="kw">fn </span>balances(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; HashMap&lt;Currency, AccountBalance&gt; {
         <span class="self">self</span>.balances.clone()
     }
+
     <span class="kw">fn </span>apply(<span class="kw-2">&amp;mut </span><span class="self">self</span>, event: AccountState) {
         <span class="self">self</span>.base_apply(event);
     }
 
-    <span class="kw">fn </span>calculate_balance_locked&lt;T: Instrument&gt;(
+    <span class="kw">fn </span>calculate_balance_locked(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-        instrument: T,
+        instrument: InstrumentAny,
         side: OrderSide,
         quantity: Quantity,
         price: Price,
@@ -692,17 +768,19 @@
     ) -&gt; anyhow::Result&lt;Money&gt; {
         <span class="self">self</span>.base_calculate_balance_locked(instrument, side, quantity, price, use_quote_for_inverse)
     }
-    <span class="kw">fn </span>calculate_pnls&lt;T: Instrument&gt;(
+
+    <span class="kw">fn </span>calculate_pnls(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        instrument: T,
+        instrument: InstrumentAny,
         fill: OrderFilled,
         position: <span class="prelude-ty">Option</span>&lt;Position&gt;,
     ) -&gt; anyhow::Result&lt;Vec&lt;Money&gt;&gt; {
         <span class="self">self</span>.base_calculate_pnls(instrument, fill, position)
     }
-    <span class="kw">fn </span>calculate_commission&lt;T: Instrument&gt;(
+
+    <span class="kw">fn </span>calculate_commission(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        instrument: T,
+        instrument: InstrumentAny,
         last_qty: Quantity,
         last_px: Price,
         liquidity_side: LiquiditySide,
@@ -762,14 +840,14 @@
 </span><span class="kw">mod </span>tests {
     <span class="kw">use </span>std::collections::{HashMap, HashSet};
 
-    <span class="kw">use </span>nautilus_common::{factories::OrderFactory, stubs::<span class="kw-2">*</span>};
+    <span class="kw">use </span>nautilus_common::{factories::OrderFactory, interface::account::Account, stubs::<span class="kw-2">*</span>};
     <span class="kw">use </span>nautilus_model::{
         enums::{AccountType, LiquiditySide, OrderSide},
         events::account::{state::AccountState, stubs::<span class="kw-2">*</span>},
         identifiers::{account_id::AccountId, position_id::PositionId, strategy_id::StrategyId},
         instruments::{
             crypto_perpetual::CryptoPerpetual, currency_pair::CurrencyPair, equity::Equity,
-            stubs::<span class="kw-2">*</span>,
+            stubs::<span class="kw-2">*</span>, Instrument,
         },
         orders::{market::MarketOrder, stubs::TestOrderEventStubs},
         position::Position,
@@ -777,7 +855,7 @@
     };
     <span class="kw">use </span>rstest::rstest;
 
-    <span class="kw">use </span><span class="kw">crate</span>::account::{cash::CashAccount, stubs::<span class="kw-2">*</span>, Account};
+    <span class="kw">use </span><span class="kw">crate</span>::account::{cash::CashAccount, stubs::<span class="kw-2">*</span>};
 
     <span class="attr">#[rstest]
     </span><span class="kw">fn </span>test_display(cash_account: CashAccount) {
@@ -929,7 +1007,7 @@
     ) {
         <span class="kw">let </span>balance_locked = cash_account_million_usd
             .calculate_balance_locked(
-                audusd_sim,
+                audusd_sim.into_any(),
                 OrderSide::Buy,
                 Quantity::from(<span class="string">"1000000"</span>),
                 Price::from(<span class="string">"0.8"</span>),
@@ -946,7 +1024,7 @@
     ) {
         <span class="kw">let </span>balance_locked = cash_account_million_usd
             .calculate_balance_locked(
-                audusd_sim,
+                audusd_sim.into_any(),
                 OrderSide::Sell,
                 Quantity::from(<span class="string">"1000000"</span>),
                 Price::from(<span class="string">"0.8"</span>),
@@ -963,7 +1041,7 @@
     ) {
         <span class="kw">let </span>balance_locked = cash_account_million_usd
             .calculate_balance_locked(
-                equity_aapl,
+                equity_aapl.into_any(),
                 OrderSide::Sell,
                 Quantity::from(<span class="string">"100"</span>),
                 Price::from(<span class="string">"1500.0"</span>),
@@ -1003,7 +1081,7 @@
         );
         <span class="kw">let </span>position = Position::new(audusd_sim, fill).unwrap();
         <span class="kw">let </span>pnls = cash_account_million_usd
-            .calculate_pnls(audusd_sim, fill, <span class="prelude-val">Some</span>(position))
+            .calculate_pnls(audusd_sim.into_any(), fill, <span class="prelude-val">Some</span>(position))
             .unwrap();
         <span class="macro">assert_eq!</span>(pnls, <span class="macro">vec!</span>[Money::from(<span class="string">"-800000 USD"</span>)]);
     }
@@ -1038,7 +1116,11 @@
         );
         <span class="kw">let </span>position = Position::new(currency_pair_btcusdt, fill1).unwrap();
         <span class="kw">let </span>result1 = cash_account_multi
-            .calculate_pnls(currency_pair_btcusdt, fill1, <span class="prelude-val">Some</span>(position.clone()))
+            .calculate_pnls(
+                currency_pair_btcusdt.into_any(),
+                fill1,
+                <span class="prelude-val">Some</span>(position.clone()),
+            )
             .unwrap();
         <span class="kw">let </span>order2 = order_factory.market(
             currency_pair_btcusdt.id,
@@ -1063,7 +1145,7 @@
             <span class="prelude-val">None</span>,
         );
         <span class="kw">let </span>result2 = cash_account_multi
-            .calculate_pnls(currency_pair_btcusdt, fill2, <span class="prelude-val">Some</span>(position))
+            .calculate_pnls(currency_pair_btcusdt.into_any(), fill2, <span class="prelude-val">Some</span>(position))
             .unwrap();
         <span class="comment">// use hash set to ignore order of results
         </span><span class="kw">let </span>result1_set: HashSet&lt;Money&gt; = result1.into_iter().collect();
@@ -1091,7 +1173,7 @@
     ) {
         <span class="kw">let </span>result = cash_account_million_usd
             .calculate_commission(
-                xbtusd_bitmex,
+                xbtusd_bitmex.into_any(),
                 Quantity::from(<span class="string">"100000"</span>),
                 Price::from(<span class="string">"11450.50"</span>),
                 LiquiditySide::Maker,
@@ -1108,7 +1190,7 @@
     ) {
         <span class="kw">let </span>result = cash_account_million_usd
             .calculate_commission(
-                audusd_sim,
+                audusd_sim.into_any(),
                 Quantity::from(<span class="string">"1500000"</span>),
                 Price::from(<span class="string">"0.8005"</span>),
                 LiquiditySide::Taker,
@@ -1125,7 +1207,7 @@
     ) {
         <span class="kw">let </span>result = cash_account_million_usd
             .calculate_commission(
-                xbtusd_bitmex,
+                xbtusd_bitmex.into_any(),
                 Quantity::from(<span class="string">"100000"</span>),
                 Price::from(<span class="string">"11450.50"</span>),
                 LiquiditySide::Taker,
@@ -1140,7 +1222,7 @@
         <span class="kw">let </span>instrument = usdjpy_idealpro();
         <span class="kw">let </span>result = cash_account_million_usd
             .calculate_commission(
-                instrument,
+                instrument.into_any(),
                 Quantity::from(<span class="string">"2200000"</span>),
                 Price::from(<span class="string">"120.310"</span>),
                 LiquiditySide::Taker,

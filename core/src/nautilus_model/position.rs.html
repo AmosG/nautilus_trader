@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `model/src/position.rs`."><title>position.rs - source</title><script> if (window.location.protocol !== "file:") document.write(`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2">`)</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-e935ef01ae1c1829.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="nautilus_model" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (0ad927c0c 2024-03-21)" data-channel="nightly" data-search-js="search-42d8da7a6b9792c2.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-12cf3b4f4f9dc36d.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../nautilus_model/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `model/src/position.rs`."><title>position.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="nautilus_model" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (e3181b091 2024-04-18)" data-channel="nightly" data-search-js="search-5b46ae87cc198d72.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../nautilus_model/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2078,6 +2076,7 @@
 <a href="#2076" id="2076">2076</a>
 <a href="#2077" id="2077">2077</a>
 <a href="#2078" id="2078">2078</a>
+<a href="#2079" id="2079">2079</a>
 </pre></div><pre class="rust"><code><span class="comment">// -------------------------------------------------------------------------------------------------
 //  Copyright (C) 2015-2024 Nautech Systems Pty Ltd. All rights reserved.
 //  https://nautechsystems.io
@@ -2099,7 +2098,7 @@
     hash::{Hash, Hasher},
 };
 
-<span class="kw">use </span>nautilus_core::time::UnixNanos;
+<span class="kw">use </span>nautilus_core::nanos::UnixNanos;
 <span class="kw">use </span>serde::{Deserialize, Serialize};
 
 <span class="kw">use crate</span>::{
@@ -2114,7 +2113,7 @@
     types::{currency::Currency, money::Money, price::Price, quantity::Quantity},
 };
 
-<span class="doccomment">/// Represents a position in a financial market.
+<span class="doccomment">/// Represents a position in a market.
 ///
 /// The position ID may be assigned at the trading venue, or can be system
 /// generated depending on a strategies OMS (Order Management System) settings.
@@ -2272,7 +2271,7 @@
             <span class="self">self</span>.closing_order_id = <span class="prelude-val">Some</span>(fill.client_order_id);
             <span class="self">self</span>.ts_closed = <span class="prelude-val">Some</span>(fill.ts_event);
             <span class="self">self</span>.duration_ns = <span class="kw">if </span><span class="self">self</span>.ts_closed.is_some() {
-                <span class="self">self</span>.ts_closed.unwrap() - <span class="self">self</span>.ts_opened
+                <span class="self">self</span>.ts_closed.unwrap().as_u64() - <span class="self">self</span>.ts_opened.as_u64()
             } <span class="kw">else </span>{
                 <span class="number">0
             </span>};
@@ -2601,6 +2600,7 @@
 </span><span class="kw">mod </span>tests {
     <span class="kw">use </span>std::str::FromStr;
 
+    <span class="kw">use </span>nautilus_core::nanos::UnixNanos;
     <span class="kw">use </span>rstest::rstest;
 
     <span class="kw">use crate</span>::{
@@ -2708,7 +2708,7 @@
         <span class="macro">assert_eq!</span>(position.signed_qty, <span class="number">100_000.0</span>);
         <span class="macro">assert_eq!</span>(position.entry, OrderSide::Buy);
         <span class="macro">assert_eq!</span>(position.side, PositionSide::Long);
-        <span class="macro">assert_eq!</span>(position.ts_opened, <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(position.ts_opened.as_u64(), <span class="number">0</span>);
         <span class="macro">assert_eq!</span>(position.duration_ns, <span class="number">0</span>);
         <span class="macro">assert_eq!</span>(position.avg_px_open, <span class="number">1.00001</span>);
         <span class="macro">assert_eq!</span>(position.event_count(), <span class="number">1</span>);
@@ -2773,7 +2773,7 @@
         <span class="macro">assert_eq!</span>(position.signed_qty, -<span class="number">100_000.0</span>);
         <span class="macro">assert_eq!</span>(position.entry, OrderSide::Sell);
         <span class="macro">assert_eq!</span>(position.side, PositionSide::Short);
-        <span class="macro">assert_eq!</span>(position.ts_opened, <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(position.ts_opened.as_u64(), <span class="number">0</span>);
         <span class="macro">assert_eq!</span>(position.avg_px_open, <span class="number">1.00001</span>);
         <span class="macro">assert_eq!</span>(position.event_count(), <span class="number">1</span>);
         <span class="macro">assert_eq!</span>(position.id, PositionId::new(<span class="string">"1"</span>).unwrap());
@@ -2833,7 +2833,7 @@
         <span class="macro">assert_eq!</span>(position.signed_qty, <span class="number">50000.0</span>);
         <span class="macro">assert_eq!</span>(position.avg_px_open, <span class="number">1.00001</span>);
         <span class="macro">assert_eq!</span>(position.event_count(), <span class="number">1</span>);
-        <span class="macro">assert_eq!</span>(position.ts_opened, <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(position.ts_opened.as_u64(), <span class="number">0</span>);
         <span class="macro">assert!</span>(position.is_long());
         <span class="macro">assert!</span>(!position.is_short());
         <span class="macro">assert!</span>(position.is_open());
@@ -2944,7 +2944,7 @@
             <span class="prelude-val">Some</span>(Price::from(<span class="string">"1.00001"</span>)),
             <span class="prelude-val">None</span>,
             <span class="prelude-val">None</span>,
-            <span class="prelude-val">Some</span>(<span class="number">1_000_000_000</span>),
+            <span class="prelude-val">Some</span>(UnixNanos::from(<span class="number">1_000_000_000</span>)),
         );
         <span class="kw">let </span><span class="kw-2">mut </span>position = Position::new(audusd_sim, fill).unwrap();
 
@@ -2965,8 +2965,8 @@
             audusd_sim.quote_currency,
             LiquiditySide::Taker,
             uuid4(),
-            <span class="number">2_000_000_000</span>,
-            <span class="number">0</span>,
+            <span class="number">2_000_000_000</span>.into(),
+            <span class="number">0</span>.into(),
             <span class="bool-val">false</span>,
             <span class="prelude-val">Some</span>(PositionId::new(<span class="string">"T1"</span>).unwrap()),
             <span class="prelude-val">Some</span>(Money::from_str(<span class="string">"0.0 USD"</span>).unwrap()),
@@ -2984,7 +2984,7 @@
         <span class="macro">assert_eq!</span>(position.signed_qty, <span class="number">0.0</span>);
         <span class="macro">assert_eq!</span>(position.side, PositionSide::Flat);
         <span class="macro">assert_eq!</span>(position.ts_opened, <span class="number">1_000_000_000</span>);
-        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(<span class="number">2_000_000_000</span>));
+        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(UnixNanos::from(<span class="number">2_000_000_000</span>)));
         <span class="macro">assert_eq!</span>(position.duration_ns, <span class="number">1_000_000_000</span>);
         <span class="macro">assert_eq!</span>(position.avg_px_open, <span class="number">1.00001</span>);
         <span class="macro">assert_eq!</span>(position.avg_px_close, <span class="prelude-val">Some</span>(<span class="number">1.00011</span>));
@@ -3072,7 +3072,7 @@
         <span class="macro">assert_eq!</span>(position.ts_opened, <span class="number">0</span>);
         <span class="macro">assert_eq!</span>(position.avg_px_open, <span class="number">1.0</span>);
         <span class="macro">assert_eq!</span>(position.events.len(), <span class="number">3</span>);
-        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(<span class="number">0</span>));
+        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(UnixNanos::default()));
         <span class="macro">assert_eq!</span>(position.avg_px_close, <span class="prelude-val">Some</span>(<span class="number">1.00002</span>));
         <span class="macro">assert!</span>(!position.is_long());
         <span class="macro">assert!</span>(!position.is_short());
@@ -3151,7 +3151,7 @@
         <span class="macro">assert_eq!</span>(position.avg_px_open, <span class="number">1.0</span>);
         <span class="macro">assert_eq!</span>(position.events.len(), <span class="number">2</span>);
         <span class="macro">assert_eq!</span>(position.trade_ids, <span class="macro">vec!</span>[fill1.trade_id, fill2.trade_id]);
-        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(<span class="number">0</span>));
+        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(UnixNanos::default()));
         <span class="macro">assert_eq!</span>(position.avg_px_close, <span class="prelude-val">Some</span>(<span class="number">1.0</span>));
         <span class="macro">assert!</span>(!position.is_long());
         <span class="macro">assert!</span>(!position.is_short());
@@ -3252,7 +3252,7 @@
             position.trade_ids,
             <span class="macro">vec!</span>[fill1.trade_id, fill2.trade_id, fill3.trade_id]
         );
-        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(<span class="number">0</span>));
+        <span class="macro">assert_eq!</span>(position.ts_closed, <span class="prelude-val">Some</span>(UnixNanos::default()));
         <span class="macro">assert_eq!</span>(position.avg_px_close, <span class="prelude-val">Some</span>(<span class="number">1.0001</span>));
         <span class="macro">assert!</span>(position.is_closed());
         <span class="macro">assert!</span>(!position.is_open());
@@ -3431,7 +3431,7 @@
             <span class="prelude-val">Some</span>(Price::from(<span class="string">"1.00001"</span>)),
             <span class="prelude-val">None</span>,
             <span class="prelude-val">Some</span>(commission1),
-            <span class="prelude-val">Some</span>(<span class="number">1_000_000_000</span>),
+            <span class="prelude-val">Some</span>(UnixNanos::from(<span class="number">1_000_000_000</span>)),
         );
         <span class="kw">let </span><span class="kw-2">mut </span>position = Position::new(audusd_sim, fill1).unwrap();
 
@@ -3452,8 +3452,8 @@
             audusd_sim.quote_currency,
             LiquiditySide::Taker,
             uuid4(),
-            <span class="number">2_000_000_000</span>,
-            <span class="number">0</span>,
+            UnixNanos::from(<span class="number">2_000_000_000</span>),
+            UnixNanos::default(),
             <span class="bool-val">false</span>,
             <span class="prelude-val">Some</span>(PositionId::from(<span class="string">"P-123456"</span>)),
             <span class="prelude-val">Some</span>(Money::from(<span class="string">"0 USD"</span>)),
@@ -3477,8 +3477,8 @@
             audusd_sim.quote_currency,
             LiquiditySide::Taker,
             uuid4(),
-            <span class="number">3_000_000_000</span>,
-            <span class="number">0</span>,
+            UnixNanos::from(<span class="number">3_000_000_000</span>),
+            UnixNanos::default(),
             <span class="bool-val">false</span>,
             <span class="prelude-val">Some</span>(PositionId::from(<span class="string">"P-123456"</span>)),
             <span class="prelude-val">Some</span>(Money::from(<span class="string">"0 USD"</span>)),

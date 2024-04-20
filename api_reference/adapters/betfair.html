@@ -450,6 +450,11 @@
               </a>
              </li>
              <li class="md-nav__item">
+              <a class="md-nav__link" href="../../integrations/bybit.html">
+               Bybit
+              </a>
+             </li>
+             <li class="md-nav__item">
               <a class="md-nav__link" href="../../integrations/databento.html">
                Databento
               </a>
@@ -3003,6 +3008,16 @@
              </span>
              <span class="sig-paren">
               )
+             </span>
+             <span class="sig-return">
+              <span class="sig-return-icon">
+               →
+              </span>
+              <span class="sig-return-typehint">
+               <span class="pre">
+                None
+               </span>
+              </span>
              </span>
              <a class="headerlink" href="#nautilus_trader.adapters.betfair.client.BetfairHttpClient.keep_alive" title="Permalink to this definition">
               ¶
@@ -5834,7 +5849,7 @@ types as values.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                success
+                success_msg
                </span>
               </span>
               <span class="p">
@@ -5873,6 +5888,40 @@ types as values.
               <span class="default_value">
                <span class="pre">
                 None
+               </span>
+              </span>
+             </em>
+             ,
+             <em class="sig-param">
+              <span class="n">
+               <span class="pre">
+                success_color
+               </span>
+              </span>
+              <span class="p">
+               <span class="pre">
+                :
+               </span>
+              </span>
+              <span class="w">
+              </span>
+              <span class="n">
+               <span class="pre">
+                LogColor
+               </span>
+              </span>
+              <span class="w">
+              </span>
+              <span class="o">
+               <span class="pre">
+                =
+               </span>
+              </span>
+              <span class="w">
+              </span>
+              <span class="default_value">
+               <span class="pre">
+                LogColor.NORMAL
                </span>
               </span>
              </em>
@@ -5958,7 +6007,7 @@ done.
                 <li>
                  <p>
                   <strong>
-                   success
+                   success_msg
                   </strong>
                   (
                   <em>
@@ -5970,7 +6019,29 @@ done.
                   <em>
                    optional
                   </em>
-                  ) – The log message to write on actions success.
+                  ) – The log message to write on
+                  <cite>
+                   actions
+                  </cite>
+                  success.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  <strong>
+                   success_color
+                  </strong>
+                  (LogColor, default
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    NORMAL
+                   </span>
+                  </code>
+                  ) – The log message color for
+                  <cite>
+                   actions
+                  </cite>
+                  success.
                  </p>
                 </li>
                </ul>
@@ -10897,6 +10968,17 @@ then the component state will not change, and an error will be logged.
                 uint64_t
                </span>
                <span class="pre">
+                sequence
+               </span>
+              </span>
+             </em>
+             ,
+             <em class="sig-param">
+              <span class="n">
+               <span class="pre">
+                uint64_t
+               </span>
+               <span class="pre">
                 ts_event
                </span>
               </span>
@@ -10909,17 +10991,6 @@ then the component state will not change, and an error will be logged.
                </span>
                <span class="pre">
                 ts_init
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                uint64_t
-               </span>
-               <span class="pre">
-                sequence=0
                </span>
               </span>
              </em>
@@ -11607,7 +11678,8 @@ then the component state will not change, and an error will be logged.
                   <em>
                    uint8_t
                   </em>
-                  ) – A combination of packet end with matching engine status.
+                  ) – The record flags bit field, indicating packet end and data information.
+A value of zero indicates no flags.
                  </p>
                 </li>
                 <li>
@@ -11620,6 +11692,7 @@ then the component state will not change, and an error will be logged.
                    uint64_t
                   </em>
                   ) – The unique sequence number for the update.
+If no sequence number provided in the source data then use a value of zero.
                  </p>
                 </li>
                 <li>
@@ -15493,7 +15566,7 @@ to
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                success
+                success_msg
                </span>
               </span>
               <span class="p">
@@ -15532,6 +15605,40 @@ to
               <span class="default_value">
                <span class="pre">
                 None
+               </span>
+              </span>
+             </em>
+             ,
+             <em class="sig-param">
+              <span class="n">
+               <span class="pre">
+                success_color
+               </span>
+              </span>
+              <span class="p">
+               <span class="pre">
+                :
+               </span>
+              </span>
+              <span class="w">
+              </span>
+              <span class="n">
+               <span class="pre">
+                LogColor
+               </span>
+              </span>
+              <span class="w">
+              </span>
+              <span class="o">
+               <span class="pre">
+                =
+               </span>
+              </span>
+              <span class="w">
+              </span>
+              <span class="default_value">
+               <span class="pre">
+                LogColor.NORMAL
                </span>
               </span>
              </em>
@@ -15617,7 +15724,7 @@ done.
                 <li>
                  <p>
                   <strong>
-                   success
+                   success_msg
                   </strong>
                   (
                   <em>
@@ -15629,7 +15736,29 @@ done.
                   <em>
                    optional
                   </em>
-                  ) – The log message to write on actions success.
+                  ) – The log message to write on
+                  <cite>
+                   actions
+                  </cite>
+                  success.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  <strong>
+                   success_color
+                  </strong>
+                  (str, default
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    NORMAL
+                   </span>
+                  </code>
+                  ) – The log message color for
+                  <cite>
+                   actions
+                  </cite>
+                  success.
                  </p>
                 </li>
                </ul>
@@ -20439,7 +20568,7 @@ If None then will source from the
                   <em>
                    str
                   </em>
-                  ) – The client name.
+                  ) – The custom client ID.
                  </p>
                 </li>
                 <li>
@@ -20746,7 +20875,7 @@ If None then will source from the
                   <em>
                    str
                   </em>
-                  ) – The client name.
+                  ) – The custom client ID.
                  </p>
                 </li>
                 <li>
