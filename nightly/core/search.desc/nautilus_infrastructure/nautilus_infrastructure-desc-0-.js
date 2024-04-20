@@ -1,0 +1,1 @@
+searchState.loadedDescShard("nautilus_infrastructure", 0, "NautilusTrader is an open-source, high-performance, …\nProvides Python bindings from <code>pyo3</code>.\nProvides a Redis cache database and message bus backing.\nReturns the argument unchanged.\nCalls <code>U::from(self)</code>.\nReturns the argument unchanged.\nCalls <code>U::from(self)</code>.")
