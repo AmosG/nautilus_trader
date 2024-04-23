@@ -13715,7 +13715,7 @@ any other reason that an otherwise valid order is not able to be submitted.
           <em class="sig-param">
            <span class="n">
             <span class="pre">
-             Any]
+             object]
             </span>
             <span class="pre">
              |
@@ -13749,13 +13749,13 @@ any other reason that an otherwise valid order is not able to be submitted.
           <em class="sig-param">
            <span class="n">
             <span class="pre">
-             unicode
+             list
             </span>
             <span class="pre">
              tags:
             </span>
             <span class="pre">
-             str
+             list[str]
             </span>
             <span class="pre">
              |
@@ -14206,14 +14206,13 @@ order parameters.
                <strong>
                 tags
                </strong>
-               (str, optional with no default so
+               (list[str], optional with no default so
                <code class="docutils literal notranslate">
                 <span class="pre">
                  None
                 </span>
                </code>
-               must be passed explicitly) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+               must be passed explicitly) – The custom user tags for the order.
               </p>
              </li>
              <li>
@@ -15277,7 +15276,7 @@ contain any arbitrary delimiter if required.
              <dd class="field-odd">
               <p>
                <cite>
-                str
+                list[str]
                </cite>
                or
                <code class="docutils literal notranslate">

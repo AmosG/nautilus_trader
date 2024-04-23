@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `common/src/timer.rs`."><title>timer.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="nautilus_common" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (dbce3b43b 2024-04-20)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../nautilus_common/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `common/src/timer.rs`."><title>timer.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="nautilus_common" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (7f2fc33da 2024-04-22)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../nautilus_common/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -495,6 +495,34 @@
 <a href="#495" id="495">495</a>
 <a href="#496" id="496">496</a>
 <a href="#497" id="497">497</a>
+<a href="#498" id="498">498</a>
+<a href="#499" id="499">499</a>
+<a href="#500" id="500">500</a>
+<a href="#501" id="501">501</a>
+<a href="#502" id="502">502</a>
+<a href="#503" id="503">503</a>
+<a href="#504" id="504">504</a>
+<a href="#505" id="505">505</a>
+<a href="#506" id="506">506</a>
+<a href="#507" id="507">507</a>
+<a href="#508" id="508">508</a>
+<a href="#509" id="509">509</a>
+<a href="#510" id="510">510</a>
+<a href="#511" id="511">511</a>
+<a href="#512" id="512">512</a>
+<a href="#513" id="513">513</a>
+<a href="#514" id="514">514</a>
+<a href="#515" id="515">515</a>
+<a href="#516" id="516">516</a>
+<a href="#517" id="517">517</a>
+<a href="#518" id="518">518</a>
+<a href="#519" id="519">519</a>
+<a href="#520" id="520">520</a>
+<a href="#521" id="521">521</a>
+<a href="#522" id="522">522</a>
+<a href="#523" id="523">523</a>
+<a href="#524" id="524">524</a>
+<a href="#525" id="525">525</a>
 </pre></div><pre class="rust"><code><span class="comment">// -------------------------------------------------------------------------------------------------
 //  Copyright (C) 2015-2024 Nautech Systems Pty Ltd. All rights reserved.
 //  https://nautechsystems.io
@@ -883,113 +911,141 @@
 ////////////////////////////////////////////////////////////////////////////////
 </span><span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests {
-    <span class="comment">// use nautilus_core::nanos::UnixNanos;
-    // use rstest::*;
-    //
-    // use super::{TestTimer, TimeEvent};
-    //
-    // #[rstest]
-    // fn test_test_timer_pop_event() {
-    //     let mut timer = TestTimer::new("test_timer", 0, UnixNanos::from(1), None).unwrap();
-    //
-    //     assert!(timer.next().is_some());
-    //     assert!(timer.next().is_some());
-    //     timer.is_expired = true;
-    //     assert!(timer.next().is_none());
-    // }
-    //
-    // #[rstest]
-    // fn test_test_timer_advance_within_next_time_ns() {
-    //     let mut timer = TestTimer::new("test_timer", 5, UnixNanos::from(0), None).unwrap();
-    //     let _: Vec&lt;TimeEvent&gt; = timer.advance(UnixNanos::from(1)).collect();
-    //     let _: Vec&lt;TimeEvent&gt; = timer.advance(UnixNanos::from(2)).collect();
-    //     let _: Vec&lt;TimeEvent&gt; = timer.advance(UnixNanos::from(3)).collect();
-    //     assert_eq!(timer.advance(UnixNanos::from(4)).count(), 0);
-    //     assert_eq!(timer.next_time_ns, 5);
-    //     assert!(!timer.is_expired);
-    // }
+    <span class="kw">use </span>nautilus_core::{
+        datetime::NANOSECONDS_IN_MILLISECOND, nanos::UnixNanos, time::get_atomic_clock_realtime,
+    };
+    <span class="kw">use </span>pyo3::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span>rstest::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tokio::time::Duration;
 
-    // #[rstest]
-    // fn test_test_timer_advance_up_to_next_time_ns() {
-    //     let mut timer = TestTimer::new("test_timer", 1, 0, None);
-    //     assert_eq!(timer.advance(1).count(), 1);
-    //     assert!(!timer.is_expired);
-    // }
-    //
-    // #[rstest]
-    // fn test_test_timer_advance_up_to_next_time_ns_with_stop_time() {
-    //     let mut timer = TestTimer::new("test_timer", 1, 0, Some(2));
-    //     assert_eq!(timer.advance(2).count(), 2);
-    //     assert!(timer.is_expired);
-    // }
-    //
-    // #[rstest]
-    // fn test_test_timer_advance_beyond_next_time_ns() {
-    //     let mut timer = TestTimer::new("test_timer", 1, 0, Some(5));
-    //     assert_eq!(timer.advance(5).count(), 5);
-    //     assert!(timer.is_expired);
-    // }
-    //
-    // #[rstest]
-    // fn test_test_timer_advance_beyond_stop_time() {
-    //     let mut timer = TestTimer::new("test_timer", 1, 0, Some(5));
-    //     assert_eq!(timer.advance(10).count(), 5);
-    //     assert!(timer.is_expired);
-    // }
+    <span class="kw">use super</span>::{LiveTimer, TestTimer, TimeEvent};
+    <span class="kw">use crate</span>::{handlers::EventHandler, testing::wait_until};
 
-    // #[tokio::test]
-    // async fn test_live_timer_starts_and_stops() {
-    //     // Create a callback that increments a counter
-    //     let event_list = Python::with_gil(|py| PyList::empty(py));
-    //
-    //     // Create a new LiveTimer with a short interval and start immediately
-    //     let clock = get_atomic_clock_realtime();
-    //     let start_time = UnixNanos::from(clock.get_time_ns());
-    //     let interval_ns = 100_000_000; // 100 ms
-    //     let mut timer =
-    //         LiveTimer::new("TEST_TIMER", interval_ns, start_time, None, handler).unwrap();
-    //     timer.start();
-    //
-    //     // Wait for a short time to allow the timer to run
-    //     tokio::time::sleep(Duration::from_millis(250)).await;
-    //
-    //     // Stop the timer and assert that the counter has been incremented
-    //     timer.cancel().unwrap();
-    //     // let counter = counter.lock().unwrap();
-    //     // assert!(*counter &gt; 0);
-    //     assert!(timer.is_expired())
-    // }
+    <span class="attr">#[pyfunction]
+    </span><span class="kw">fn </span>receive_event(_py: Python, _event: TimeEvent) -&gt; PyResult&lt;()&gt; {
+        <span class="comment">// TODO: Assert the length of a handler vec
+        </span><span class="prelude-val">Ok</span>(())
+    }
 
-    // #[tokio::test]
-    // async fn test_live_timer_with_stop_time() {
-    //     // Create a callback that increments a counter
-    //     let counter = Arc::new(Mutex::new(0));
-    //     let counter_clone = Arc::clone(&amp;counter);
-    //     let callback = move || {
-    //         let mut counter = counter_clone.lock().unwrap();
-    //         *counter += 1;
-    //     };
-    //
-    //     // Create a new LiveTimer with a short interval and stop time
-    //     let start_time = UnixNanos::now();
-    //     let interval_ns = 100_000_000; // 100 ms
-    //     let stop_time = start_time + 500_000_000; // 500 ms
-    //     let mut live_timer = LiveTimer::new(
-    //         "TEST_TIMER",
-    //         interval_ns,
-    //         start_time,
-    //         Some(stop_time),
-    //         callback,
-    //     )
-    //     .unwrap();
-    //     live_timer.start();
-    //
-    //     // Wait for a longer time than the stop time
-    //     tokio::time::sleep(Duration::from_millis(750)).await;
-    //
-    //     // Check that the counter has not been incremented beyond the stop time
-    //     let counter = counter.lock().unwrap();
-    //     assert!(*counter &lt;= 5); // 500 ms / 100 ms = 5 increments
-    // }
-</span>}
+    <span class="attr">#[rstest]
+    </span><span class="kw">fn </span>test_test_timer_pop_event() {
+        <span class="kw">let </span><span class="kw-2">mut </span>timer = TestTimer::new(<span class="string">"test_timer"</span>, <span class="number">1</span>, UnixNanos::from(<span class="number">1</span>), <span class="prelude-val">None</span>).unwrap();
+
+        <span class="macro">assert!</span>(timer.next().is_some());
+        <span class="macro">assert!</span>(timer.next().is_some());
+        timer.is_expired = <span class="bool-val">true</span>;
+        <span class="macro">assert!</span>(timer.next().is_none());
+    }
+
+    <span class="attr">#[rstest]
+    </span><span class="kw">fn </span>test_test_timer_advance_within_next_time_ns() {
+        <span class="kw">let </span><span class="kw-2">mut </span>timer = TestTimer::new(<span class="string">"test_timer"</span>, <span class="number">5</span>, UnixNanos::default(), <span class="prelude-val">None</span>).unwrap();
+        <span class="kw">let _</span>: Vec&lt;TimeEvent&gt; = timer.advance(UnixNanos::from(<span class="number">1</span>)).collect();
+        <span class="kw">let _</span>: Vec&lt;TimeEvent&gt; = timer.advance(UnixNanos::from(<span class="number">2</span>)).collect();
+        <span class="kw">let _</span>: Vec&lt;TimeEvent&gt; = timer.advance(UnixNanos::from(<span class="number">3</span>)).collect();
+        <span class="macro">assert_eq!</span>(timer.advance(UnixNanos::from(<span class="number">4</span>)).count(), <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(timer.next_time_ns, <span class="number">5</span>);
+        <span class="macro">assert!</span>(!timer.is_expired);
+    }
+
+    <span class="attr">#[rstest]
+    </span><span class="kw">fn </span>test_test_timer_advance_up_to_next_time_ns() {
+        <span class="kw">let </span><span class="kw-2">mut </span>timer = TestTimer::new(<span class="string">"test_timer"</span>, <span class="number">1</span>, UnixNanos::default(), <span class="prelude-val">None</span>).unwrap();
+        <span class="macro">assert_eq!</span>(timer.advance(UnixNanos::from(<span class="number">1</span>)).count(), <span class="number">1</span>);
+        <span class="macro">assert!</span>(!timer.is_expired);
+    }
+
+    <span class="attr">#[rstest]
+    </span><span class="kw">fn </span>test_test_timer_advance_up_to_next_time_ns_with_stop_time() {
+        <span class="kw">let </span><span class="kw-2">mut </span>timer = TestTimer::new(
+            <span class="string">"test_timer"</span>,
+            <span class="number">1</span>,
+            UnixNanos::default(),
+            <span class="prelude-val">Some</span>(UnixNanos::from(<span class="number">2</span>)),
+        )
+        .unwrap();
+        <span class="macro">assert_eq!</span>(timer.advance(UnixNanos::from(<span class="number">2</span>)).count(), <span class="number">2</span>);
+        <span class="macro">assert!</span>(timer.is_expired);
+    }
+
+    <span class="attr">#[rstest]
+    </span><span class="kw">fn </span>test_test_timer_advance_beyond_next_time_ns() {
+        <span class="kw">let </span><span class="kw-2">mut </span>timer = TestTimer::new(
+            <span class="string">"test_timer"</span>,
+            <span class="number">1</span>,
+            UnixNanos::default(),
+            <span class="prelude-val">Some</span>(UnixNanos::from(<span class="number">5</span>)),
+        )
+        .unwrap();
+        <span class="macro">assert_eq!</span>(timer.advance(UnixNanos::from(<span class="number">5</span>)).count(), <span class="number">5</span>);
+        <span class="macro">assert!</span>(timer.is_expired);
+    }
+
+    <span class="attr">#[rstest]
+    </span><span class="kw">fn </span>test_test_timer_advance_beyond_stop_time() {
+        <span class="kw">let </span><span class="kw-2">mut </span>timer = TestTimer::new(
+            <span class="string">"test_timer"</span>,
+            <span class="number">1</span>,
+            UnixNanos::default(),
+            <span class="prelude-val">Some</span>(UnixNanos::from(<span class="number">5</span>)),
+        )
+        .unwrap();
+        <span class="macro">assert_eq!</span>(timer.advance(UnixNanos::from(<span class="number">10</span>)).count(), <span class="number">5</span>);
+        <span class="macro">assert!</span>(timer.is_expired);
+    }
+
+    <span class="attr">#[tokio::test]
+    </span><span class="kw">async fn </span>test_live_timer_starts_and_stops() {
+        pyo3::prepare_freethreaded_python();
+
+        <span class="kw">let </span>handler = Python::with_gil(|py| {
+            <span class="kw">let </span>callable = <span class="macro">wrap_pyfunction!</span>(receive_event, py).unwrap();
+            EventHandler::new(callable.into_py(py))
+        });
+
+        <span class="comment">// Create a new LiveTimer with no stop time
+        </span><span class="kw">let </span>clock = get_atomic_clock_realtime();
+        <span class="kw">let </span>start_time = UnixNanos::from(clock.get_time_ns());
+        <span class="kw">let </span>interval_ns = <span class="number">100 </span>* NANOSECONDS_IN_MILLISECOND;
+        <span class="kw">let </span><span class="kw-2">mut </span>timer =
+            LiveTimer::new(<span class="string">"TEST_TIMER"</span>, interval_ns, start_time, <span class="prelude-val">None</span>, handler).unwrap();
+        timer.start();
+
+        <span class="comment">// Wait for timer to run
+        </span>tokio::time::sleep(Duration::from_millis(<span class="number">300</span>)).<span class="kw">await</span>;
+
+        timer.cancel().unwrap();
+        wait_until(|| timer.is_expired(), Duration::from_secs(<span class="number">2</span>));
+    }
+
+    <span class="attr">#[tokio::test]
+    </span><span class="kw">async fn </span>test_live_timer_with_stop_time() {
+        pyo3::prepare_freethreaded_python();
+
+        <span class="kw">let </span>handler = Python::with_gil(|py| {
+            <span class="kw">let </span>callable = <span class="macro">wrap_pyfunction!</span>(receive_event, py).unwrap();
+            EventHandler::new(callable.into_py(py))
+        });
+
+        <span class="comment">// Create a new LiveTimer with a stop time
+        </span><span class="kw">let </span>clock = get_atomic_clock_realtime();
+        <span class="kw">let </span>start_time = UnixNanos::from(clock.get_time_ns());
+        <span class="kw">let </span>interval_ns = <span class="number">100 </span>* NANOSECONDS_IN_MILLISECOND;
+        <span class="kw">let </span>stop_time = start_time + <span class="number">500 </span>* NANOSECONDS_IN_MILLISECOND;
+        <span class="kw">let </span><span class="kw-2">mut </span>timer = LiveTimer::new(
+            <span class="string">"TEST_TIMER"</span>,
+            interval_ns,
+            start_time,
+            <span class="prelude-val">Some</span>(stop_time),
+            handler,
+        )
+        .unwrap();
+        timer.start();
+
+        <span class="comment">// Wait for a longer time than the stop time
+        </span>tokio::time::sleep(Duration::from_secs(<span class="number">1</span>)).<span class="kw">await</span>;
+
+        wait_until(|| timer.is_expired(), Duration::from_secs(<span class="number">2</span>));
+    }
+}
 </code></pre></div></section></main></body></html>

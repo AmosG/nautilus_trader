@@ -1812,7 +1812,7 @@ to BUY 100,000 AUD using USD:
     <span class="n">quantity</span><span class="o">=</span><span class="n">Quantity</span><span class="o">.</span><span class="n">from_int</span><span class="p">(</span><span class="mi">100_000</span><span class="p">),</span>
     <span class="n">time_in_force</span><span class="o">=</span><span class="n">TimeInForce</span><span class="o">.</span><span class="n">IOC</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default GTC)</span>
     <span class="n">reduce_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default False)</span>
-    <span class="n">tags</span><span class="o">=</span><span class="s2">"ENTRY"</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"ENTRY"</span><span class="p">],</span>  <span class="c1"># &lt;-- optional (default None)</span>
 <span class="p">)</span>
 </pre>
            </div>
@@ -2100,7 +2100,7 @@ to SELL 10 ETHUSDT-PERP Perpetual Futures contracts at a trigger price of 10,000
     <span class="n">time_in_force</span><span class="o">=</span><span class="n">TimeInForce</span><span class="o">.</span><span class="n">GTC</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default GTC)</span>
     <span class="n">expire_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
     <span class="n">reduce_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default False)</span>
-    <span class="n">tags</span><span class="o">=</span><span class="s2">"ENTRY"</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"ENTRY"</span><span class="p">],</span>  <span class="c1"># &lt;-- optional (default None)</span>
 <span class="p">)</span>
 </pre>
            </div>
@@ -2161,7 +2161,7 @@ active until midday 6th June, 2022 (UTC):
     <span class="n">expire_time</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">"2022-06-06T12:00"</span><span class="p">),</span>
     <span class="n">post_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default False)</span>
     <span class="n">reduce_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default False)</span>
-    <span class="n">tags</span><span class="o">=</span><span class="s2">"TAKE_PROFIT"</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"TAKE_PROFIT"</span><span class="p">],</span>  <span class="c1"># &lt;-- optional (default None)</span>
 <span class="p">)</span>
 </pre>
            </div>
@@ -2224,7 +2224,7 @@ Perpetual Futures Contracts activating at a trigger price of 5000 USD, then trai
     <span class="n">time_in_force</span><span class="o">=</span><span class="n">TimeInForce</span><span class="o">.</span><span class="n">GTC</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default GTC)</span>
     <span class="n">expire_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
     <span class="n">reduce_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default False)</span>
-    <span class="n">tags</span><span class="o">=</span><span class="s2">"TRAILING_STOP-1"</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"TRAILING_STOP-1"</span><span class="p">],</span>  <span class="c1"># &lt;-- optional (default None)</span>
 <span class="p">)</span>
 </pre>
            </div>
@@ -2290,7 +2290,7 @@ away from the current ask price, active until further notice:
     <span class="n">time_in_force</span><span class="o">=</span><span class="n">TimeInForce</span><span class="o">.</span><span class="n">GTC</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default GTC)</span>
     <span class="n">expire_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
     <span class="n">reduce_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default False)</span>
-    <span class="n">tags</span><span class="o">=</span><span class="s2">"TRAILING_STOP"</span><span class="p">,</span>  <span class="c1"># &lt;-- optional (default None)</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"TRAILING_STOP"</span><span class="p">],</span>  <span class="c1"># &lt;-- optional (default None)</span>
 <span class="p">)</span>
 </pre>
            </div>

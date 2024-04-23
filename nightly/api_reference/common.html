@@ -29322,21 +29322,10 @@ without executing those tasks.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
-                entry_tags=u'ENTRY'
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                unicode
-               </span>
-               <span class="pre">
-                tp_tags=u'TAKE_PROFIT'
+                entry_tags=None
                </span>
               </span>
              </em>
@@ -29344,10 +29333,21 @@ without executing those tasks.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
-                sl_tags=u'STOP_LOSS'
+                tp_tags=None
+               </span>
+              </span>
+             </em>
+             ,
+             <em class="sig-param">
+              <span class="n">
+               <span class="pre">
+                list
+               </span>
+               <span class="pre">
+                sl_tags=None
                </span>
               </span>
              </em>
@@ -29934,16 +29934,33 @@ of
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
                   </em>
                   <em>
-                   default "ENTRY"
+                   default
                   </em>
-                  ) – The custom user tags for the entry order. These are optional and can
-contain any arbitrary delimiter if required.
+                  <em>
+                   [
+                  </em>
+                  <em>
+                   "ENTRY"
+                  </em>
+                  <em>
+                   ]
+                  </em>
+                  ) – The custom user tags for the entry order.
                  </p>
                 </li>
                 <li>
@@ -29953,16 +29970,33 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
                   </em>
                   <em>
-                   default "TAKE_PROFIT"
+                   default
                   </em>
-                  ) – The custom user tags for the take-profit order. These are optional and can
-contain any arbitrary delimiter if required.
+                  <em>
+                   [
+                  </em>
+                  <em>
+                   "TAKE_PROFIT"
+                  </em>
+                  <em>
+                   ]
+                  </em>
+                  ) – The custom user tags for the take-profit order.
                  </p>
                 </li>
                 <li>
@@ -29972,16 +30006,33 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
                   </em>
                   <em>
-                   default "STOP_LOSS"
+                   default
                   </em>
-                  ) – The custom user tags for the stop-loss order. These are optional and can
-contain any arbitrary delimiter if required.
+                  <em>
+                   [
+                  </em>
+                  <em>
+                   "STOP_LOSS"
+                  </em>
+                  <em>
+                   ]
+                  </em>
+                  ) – The custom user tags for the stop-loss order.
                  </p>
                 </li>
                </ul>
@@ -30422,7 +30473,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -30781,7 +30832,16 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -30789,8 +30849,7 @@ contain any arbitrary delimiter if required.
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -31068,7 +31127,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -31443,7 +31502,16 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -31451,8 +31519,7 @@ contain any arbitrary delimiter if required.
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -31684,7 +31751,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -31917,7 +31984,16 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -31925,8 +32001,7 @@ contain any arbitrary delimiter if required.
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -32151,7 +32226,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -32474,7 +32549,16 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -32482,8 +32566,7 @@ contain any arbitrary delimiter if required.
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -32721,7 +32804,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -32986,7 +33069,16 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -32994,8 +33086,7 @@ contain any arbitrary delimiter if required.
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -33460,7 +33551,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -33835,7 +33926,16 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -33843,8 +33943,7 @@ contain any arbitrary delimiter if required.
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -34131,7 +34230,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -34454,7 +34553,16 @@ contain any arbitrary delimiter if required.
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -34462,8 +34570,7 @@ contain any arbitrary delimiter if required.
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -34864,7 +34971,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -35311,7 +35418,16 @@ to the delta of market price and
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -35319,8 +35435,7 @@ to the delta of market price and
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
@@ -35647,7 +35762,7 @@ contain any arbitrary delimiter if required.
              <em class="sig-param">
               <span class="n">
                <span class="pre">
-                unicode
+                list
                </span>
                <span class="pre">
                 tags=None
@@ -35983,7 +36098,16 @@ to the delta of market price and
                   </strong>
                   (
                   <em>
+                   list
+                  </em>
+                  <em>
+                   [
+                  </em>
+                  <em>
                    str
+                  </em>
+                  <em>
+                   ]
                   </em>
                   <em>
                    ,
@@ -35991,8 +36115,7 @@ to the delta of market price and
                   <em>
                    optional
                   </em>
-                  ) – The custom user tags for the order. These are optional and can
-contain any arbitrary delimiter if required.
+                  ) – The custom user tags for the order.
                  </p>
                 </li>
                </ul>
