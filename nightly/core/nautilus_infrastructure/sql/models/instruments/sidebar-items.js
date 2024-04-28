@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {};
+window.SIDEBAR_ITEMS = {"struct":["CryptoFutureModel","CryptoPerpetualModel","CurrencyPairModel","EquityModel","FuturesContractModel","FuturesSpreadModel","InstrumentAnyModel","OptionsContractModel","OptionsSpreadModel"]};
