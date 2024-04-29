@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["stub_trade_tick_ethusdt_buyer"],"struct":["stub_trade_tick_ethusdt_buyer"]};
+window.SIDEBAR_ITEMS = {"fn":["stub_trade_tick_ethusdt_buyer","trade_tick_audusd_sim"],"struct":["stub_trade_tick_ethusdt_buyer","trade_tick_audusd_sim"]};

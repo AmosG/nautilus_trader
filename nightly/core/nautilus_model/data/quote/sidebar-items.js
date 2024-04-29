@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["stubs"],"struct":["QuoteTick"]};
+window.SIDEBAR_ITEMS = {"enum":["QuoteTickBuilderError"],"mod":["stubs"],"struct":["QuoteTick","QuoteTickBuilder"]};
